@@ -76,6 +76,8 @@ header {
     text-align: center;
   }
   input {
+    font-family: $primary-font;
+    font-weight: 400;
     font-size: 30px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
@@ -83,17 +85,14 @@ header {
     background-color: inherit;
     border: none;
     border-bottom: 4px solid $primary-color;
-    width: 300px;
+    width: 370px;
     margin-top: 50px;
     transition: background-color .35s;
+    &:hover,
     &:focus {
       background-color: lighten($secondary-color, 10%);
     }
   }
-}
-
-input::placeholder {
-  color: $primary-color;
 }
 
 // articles.js
@@ -101,30 +100,65 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  article {
-    padding: 20px;
-    border-radius: 5px;
-    text-align: center;
-    width: 300px;
-    background-color: $tertiary-color;
-    margin-bottom: 40px;
-    img {
-      object-fit: cover;
-      width: 100%;
-      height: auto;
+  form {
+    height: 300px;
+    margin-bottom: 60px;
+    .image-container {
+      position: relative;
+      border-radius: 20px;
+      width: 525px;
+      height: 100%;
     }
   }
 }
 
-article p {
-  text-align: left;
-  margin-top: 40px;
+.image-container img {
+  display: block;
+  position: absolute;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
 }
 
-article a {
-  display: inline-block;
-  margin-top: 40px;
-  padding: 10px;
-  background-color: $primary-color;
+.image-container h2 {
+  font-size: 30px;
+  position: absolute;
+  border-radius: 8px;
+  bottom: 0;
   color: $tertiary-color;
+  background-color: rgba(38, 38, 38, 0.9);
+  padding: 10px;
+  max-width: 320px;
+}
+
+// article p {
+//   position: absolute;
+//   top: 100px;
+//   color: white;
+//   text-align: left;
+//   margin-top: 40px;
+// }
+
+form button {
+  display: inline-block;
+  font-size: 25px;
+  position: absolute;
+  right: 0;
+  color: $secondary-color;
+  background-color: rgba(38, 38, 38, 0.9);
+  border: 3px solid rgba(38, 38, 38, 0.9);
+  border-radius: 8px;
+  padding: 10px;
+  transition: color .35s, background-color .35s;
+  &:hover,
+  &:focus {
+    color: $primary-color;
+    background-color: rgba(204, 201, 220, 0.9)
+  }
+}
+
+i {
+  color: white;
 }
