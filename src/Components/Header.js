@@ -11,8 +11,10 @@ class Header extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    let userSearch = this.state.query;
-    console.log(userSearch);
+    this.props.handleSearch(this.state.query);
+    this.setState({
+      query: ''
+    })
   }
 
   handleChange = (e) => {
@@ -29,14 +31,16 @@ class Header extends Component {
           <h1>The Specific Press</h1>
           <form onSubmit={this.handleSubmit}>
             <input 
-              onChange={this.handleChange} 
               type="text" 
-              placeholder="Search"
+              placeholder="Search for some news..."
+              value={this.state.query}
+              onChange={this.handleChange} 
             />
             <label className="sr-only" htmlFor="search">
             Search News
             </label>
           </form>
+          {/* <h2>{this.state.query}</h2> */}
         </div>
       </header>
     )
