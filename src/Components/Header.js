@@ -40,7 +40,6 @@ class Header extends Component {
             Search News
             </label>
           </form>
-          {/* <h2>{this.state.query}</h2> */}
         </div>
       </header>
     )

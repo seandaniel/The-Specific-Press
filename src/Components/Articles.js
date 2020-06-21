@@ -1,18 +1,26 @@
 import React from 'react'; 
-import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
+import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Articles = ({title, imgSrc, publishedAt, url}) => {
-  return (
-    <form action={url}>
+const Articles = ({title, imgSrc, url}) => {
+    
+  // if there isn't an image, don't return the article
+  if (imgSrc === null) {
+    return (
+      null  
+    )
+  } else {
+      return (
+      <form action={url}>
         <div className="image-container">
         <img src={imgSrc} alt={title}/>
         <h2>{title}</h2>
-        {/* <p>{publishedAt}</p> */}
-        <button aria-label={`${title}, enter to read more.`} title={url}><FontAwesomeIcon icon={faExternalLinkAlt} /></button>
+        <button aria-label={`${title}, enter to read more.`} title={url}><FontAwesomeIcon icon={faLink} /></button>
         </div>
-    </form>
+      </form>
     )
+  }
+  
 }
 
 export default Articles

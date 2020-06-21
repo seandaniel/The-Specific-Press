@@ -133,19 +133,12 @@ main {
   max-width: 320px;
 }
 
-// article p {
-//   position: absolute;
-//   top: 100px;
-//   color: white;
-//   text-align: left;
-//   margin-top: 40px;
-// }
-
 form button {
   display: inline-block;
-  font-size: 25px;
   position: absolute;
+  top: 0;
   right: 0;
+  font-size: 25px;
   color: $secondary-color;
   background-color: rgba(38, 38, 38, 0.9);
   border: 3px solid rgba(38, 38, 38, 0.9);

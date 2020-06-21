@@ -10,7 +10,8 @@ class App extends Component {
     this.state = {
       articles: [],
       query: '',
-      isLoading: false
+      results: 1,
+      isLoading: false,
     }
   }
 
@@ -20,29 +21,34 @@ class App extends Component {
       method: 'GET',
       responseType: 'JSON',
      }).then(response => {
+
+       let results = response.data.totalResults;
+
        let articles = response.data.articles;
 
        const filterArticleTitles = articles.filter((article, index, array) => {
          return array.findIndex(secondIndex => (secondIndex.title === article.title)) === index
        });
-       
+
        this.setState({
          articles: filterArticleTitles,
+         query: '',
+         results,
          isLoading: false,
-         query: ''
        })
+
      }
   )}
 
   render() {
-    const {articles} = this.state;
+    const {articles, results} = this.state;
     return (
       <>
         <Header handleSearch={this.handleSearch}/>
         <div className="wrapper">
           <main>
             {
-              articles.map((article, index) => {
+              results > 0 ? articles.map((article, index) => {
                 return (
                   <Articles
                     key={index}
@@ -51,9 +57,9 @@ class App extends Component {
                     date={article.publishedAt}
                     url={article.url}
                   />
-                )
-              })
-            }
+                  )
+                }) : <h3>That must not have been newsworthy, try again.</h3>
+              }
           </main>
         </div>
       </>
