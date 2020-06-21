@@ -9,42 +9,51 @@ class App extends Component {
     super();
     this.state = {
       articles: [],
-      query: '',
       results: 1,
+      query: '',
       isLoading: false,
     }
   }
 
-  handleSearch = value => {
+  apiCall = (value = 'general') => {
     axios({
       url: `https://newsapi.org/v2/everything?q=${value}&language=en&pageSize=100&apiKey=eb43cb932e264320adfd1b7942970622`,
       method: 'GET',
       responseType: 'JSON',
-     }).then(response => {
+    }).then(response => {
 
-       let results = response.data.totalResults;
+      let results = response.data.totalResults;
+      let articles = response.data.articles;
 
-       let articles = response.data.articles;
+      const filterArticleTitles = articles.filter((article, index, array) => {
+        return array.findIndex(secondIndex => (secondIndex.title === article.title)) === index
+      });
 
-       const filterArticleTitles = articles.filter((article, index, array) => {
-         return array.findIndex(secondIndex => (secondIndex.title === article.title)) === index
-       });
+      this.setState({
+        articles: filterArticleTitles,
+        results,
+        query: '',
+        isLoading: false,
+      })
 
-       this.setState({
-         articles: filterArticleTitles,
-         query: '',
-         results,
-         isLoading: false,
-       })
+    })
+  }
 
-     }
-  )}
+
+  onPageLoad = () => {
+    this.apiCall();
+  }
+
+  handleSearch = value => {
+    this.apiCall(value);
+  }
 
   render() {
     const {articles, results} = this.state;
     return (
       <>
         <Header handleSearch={this.handleSearch}/>
+        {this.onPageLoad()}
         <div className="wrapper">
           <main>
             {
