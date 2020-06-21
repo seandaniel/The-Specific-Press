@@ -172,3 +172,45 @@ form button {
 i {
   color: white;
 }
+
+.error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 auto;
+  font-size: 40px;
+  img {
+    background-color: lighten($secondary-color, 10%);
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+// Footer.js
+footer {
+  background-color: $primary-color;
+  padding: 40px;
+  color: $tertiary-color;
+  p {
+    color: $tertiary-color;
+    font-size: 20px;
+    font-style: italic;
+  }
+  a {
+    color: $secondary-color;
+    text-decoration: underline;
+    transition: color .35s;
+    font-size: 30px;
+    &:hover,
+    &:focus {
+      color: $tertiary-color;
+    }
+  }
+}
+
+footer .wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
