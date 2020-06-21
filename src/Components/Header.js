@@ -6,6 +6,7 @@ class Header extends Component {
     super();
     this.state = {
       query: '',
+      placeholder: 'Miscellaneous'
     }
   }
 
@@ -13,13 +14,15 @@ class Header extends Component {
     e.preventDefault();
     this.props.handleSearch(this.state.query);
     this.setState({
-      query: ''
+      query: '',
+      placeholder: this.state.query
+
     })
   }
 
   handleChange = (e) => {
     this.setState({
-      query: e.target.value
+      query: e.target.value,
     });
   }
 
@@ -29,10 +32,12 @@ class Header extends Component {
       <header>
         <div className="wrapper">
           <h1>The Specific Press</h1>
+          <h2>Enter a subject for the latest news headlines</h2>
           <form onSubmit={this.handleSubmit}>
+            <h2>Showing results for: </h2>
             <input 
               type="text" 
-              placeholder="Search for some news..."
+              placeholder={this.state.placeholder}
               value={this.state.query}
               onChange={this.handleChange} 
             />

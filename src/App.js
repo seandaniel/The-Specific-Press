@@ -9,13 +9,15 @@ class App extends Component {
     super();
     this.state = {
       articles: [],
+      // null
       results: 1,
       query: '',
-      isLoading: false,
+      placeholder: 'Miscellaneous',
+      isLoading: true,
     }
   }
 
-  apiCall = (value = 'general') => {
+  apiCall = (value='Miscellaneous') => {
     axios({
       url: `https://newsapi.org/v2/everything?q=${value}&language=en&pageSize=100&apiKey=eb43cb932e264320adfd1b7942970622`,
       method: 'GET',
@@ -33,19 +35,24 @@ class App extends Component {
         articles: filterArticleTitles,
         results,
         query: '',
+        placeholder: value,
         isLoading: false,
       })
 
+      
     })
   }
-
-
+  
   onPageLoad = () => {
     this.apiCall();
+    console.log(this.state.placeholder);
   }
 
   handleSearch = value => {
     this.apiCall(value);
+    this.setState({
+      placeholder: value,
+    })
   }
 
   render() {
