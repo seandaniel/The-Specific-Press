@@ -6,17 +6,19 @@ class Header extends Component {
     super();
     this.state = {
       query: '',
-      placeholder: 'Miscellaneous'
+      placeholder: 'Miscellaneous',
     }
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.handleSearch(this.state.query);
+
+    const { query } = this.state;
+    this.props.handleSearch(query);
+
     this.setState({
       query: '',
-      placeholder: this.state.query
-
+      placeholder: query,
     })
   }
 
@@ -27,7 +29,8 @@ class Header extends Component {
   }
 
   render() {
-    // const {handleSubmit, handleChange} = this.state;
+    const {placeholder, query} = this.state;
+    // handleSubmit, handleChange 
     return (
       <header>
         <div className="wrapper">
@@ -37,8 +40,8 @@ class Header extends Component {
             <h2>Showing results for: </h2>
             <input 
               type="text" 
-              placeholder={this.state.placeholder}
-              value={this.state.query}
+              placeholder={placeholder}
+              value={query}
               onChange={this.handleChange} 
             />
             <label className="sr-only" htmlFor="search">
