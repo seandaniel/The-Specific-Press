@@ -8,7 +8,9 @@ const Footer = () => {
     <footer>
       <div className="wrapper">
         <p>News articles courtesy of the <a href="https://newsapi.org/">News API</a></p>
-        <a href="https://github.com/seandaniel/the-specific-press"><FontAwesomeIcon icon={faArrowUp}/></a>
+        <a href="https://github.com/seandaniel/the-specific-press">
+          <FontAwesomeIcon icon={faArrowUp}/>
+        </a>
       </div>
     </footer>
     )

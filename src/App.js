@@ -17,7 +17,7 @@ class App extends Component {
     }
   }
 
-  apiCall = (value='Miscellaneous') => {
+  apiCall = (value = 'Miscellaneous') => {
     axios({
       url: `https://newsapi.org/v2/everything?q=${value}&language=en&pageSize=100&apiKey=eb43cb932e264320adfd1b7942970622`,
       method: 'GET',
@@ -76,7 +76,7 @@ class App extends Component {
                 })
                   : <div className="error-container">
                       <img src="assets/thumbdown.png" alt="A thumb pointed down"/>
-                      <h3>That must not have been newsworthy, try again.</h3>
+                      <h3>That subject must not be newsworthy, try again.</h3>
                     </div>
               }
           </main>

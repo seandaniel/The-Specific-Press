@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Articles = ({title, imgSrc, url}) => {
     
-  // if there isn't an image, don't return the article
+  // if there is no image, don't return the article
   if (imgSrc === null) {
     return (
       null  
