@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Header from './Components/Header'
-import Articles from './Components/Articles';
 import axios from 'axios';
+import Articles from './Components/Articles';
+// import Footer from './Components/Footer'
 import './index.scss';
 
 class App extends Component {
@@ -9,10 +10,9 @@ class App extends Component {
     super();
     this.state = {
       articles: [],
-      // null
+      // null?
       results: 1,
       query: '',
-      placeholder: 'Miscellaneous',
       isLoading: true,
     }
   }
@@ -45,7 +45,6 @@ class App extends Component {
   
   onPageLoad = () => {
     this.apiCall();
-    console.log(this.state.placeholder);
   }
 
   handleSearch = value => {
@@ -74,10 +73,15 @@ class App extends Component {
                     url={article.url}
                   />
                   )
-                }) : <h3>That must not have been newsworthy, try again.</h3>
+                })
+                  : <div className="error-container">
+                      <img src="assets/thumbdown.png" alt="A thumb pointed down"/>
+                      <h3>That must not have been newsworthy, try again.</h3>
+                    </div>
               }
           </main>
         </div>
+        {/* <Footer /> */}
       </>
     )
   }
