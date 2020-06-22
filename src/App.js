@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Header from './Components/Header'
-import axios from 'axios';
+// import axios from 'axios';
 import Articles from './Components/Articles';
+import Error from './Components/Error'
 // import Footer from './Components/Footer'
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './index.scss';
 
 class App extends Component {
@@ -19,14 +20,14 @@ class App extends Component {
     }
   }
 
-  loading = () => {
-    return (
-      <div>
-      <p>Loading...</p>
-      <FontAwesomeIcon icon={faSpinner}/>
-      </div>
-    )
-  }
+  // loading = () => {
+  //   return (
+  //     <div className='loading-container'>
+  //       <p>Loading...</p>
+  //       <FontAwesomeIcon icon={faSpinner}/>
+  //     </div>
+  //   )
+  // }
 
   apiCall = (value='Miscellaneous') => {
     // axios({
@@ -54,8 +55,8 @@ class App extends Component {
   }
 
   onPageLoad = () => {
-    this.apiCall();
     console.log('Miscellaneous')
+    this.apiCall();
     this.setState({
       pageLoadCount: 2
     })
@@ -89,11 +90,7 @@ class App extends Component {
                     date={article.publishedAt}
                   />
                   )
-                })
-                  : <div className="error-container">
-                      <img src="assets/thumbdown.png" alt="A thumb pointed down"/>
-                      <h3>That subject must not be newsworthy, try again.</h3>
-                    </div>
+                }) : <Error />
               }
           </main>
         </div>
