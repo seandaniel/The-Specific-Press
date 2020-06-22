@@ -3,6 +3,8 @@ import Header from './Components/Header'
 import axios from 'axios';
 import Articles from './Components/Articles';
 // import Footer from './Components/Footer'
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './index.scss';
 
 class App extends Component {
@@ -17,42 +19,51 @@ class App extends Component {
     }
   }
 
+  loading = () => {
+    return (
+      <div>
+      <p>Loading...</p>
+      <FontAwesomeIcon icon={faSpinner}/>
+      </div>
+    )
+  }
+
   apiCall = (value='Miscellaneous') => {
-    axios({
-      url: `https://newsapi.org/v2/everything?q=${value}&language=en&pageSize=100&apiKey=2c5e5f28c17545c4bb0720c93761433c`,
-      method: 'GET',
-      responseType: 'JSON',
-    }).then(response => {
+    // axios({
+    //   url: `https://newsapi.org/v2/everything?q=${value}&language=en&pageSize=100&apiKey=2c5e5f28c17545c4bb0720c93761433c`,
+    //   method: 'GET',
+    //   responseType: 'JSON',
+    // }).then(response => {
 
-      let results = response.data.totalResults;
-      let articles = response.data.articles;
+    //   let results = response.data.totalResults;
+    //   let articles = response.data.articles;
 
-      const filterArticleTitles = articles.filter((article, index, array) => {
-        return array.findIndex(secondIndex => (secondIndex.title === article.title)) === index
-      });
+    //   const filterArticleTitles = articles.filter((article, index, array) => {
+    //     return array.findIndex(secondIndex => (secondIndex.title === article.title)) === index
+    //   });
 
-      this.setState({
-        articles: filterArticleTitles,
-        results,
-        query: '',
-        placeholder: value,
-        isLoading: false,
-      })
-    })
+    //   this.setState({
+    //     articles: filterArticleTitles,
+    //     results,
+    //     query: '',
+    //     placeholder: value,
+    //     isLoading: false,
+    //   })
+    // })
+    console.log('API Called');
   }
 
   onPageLoad = () => {
     this.apiCall();
+    console.log('Miscellaneous')
     this.setState({
       pageLoadCount: 2
     })
   }
 
   handleSearch = value => {
+    console.log(value);
     this.apiCall(value);
-    this.setState({
-      query: value,
-    })
   }
 
   render() {
