@@ -4,8 +4,8 @@ import Header from './Components/Header'
 import Articles from './Components/Articles';
 import Error from './Components/Error'
 // import Footer from './Components/Footer'
-// import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSpinner } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './index.scss';
 
 class App extends Component {
@@ -20,14 +20,14 @@ class App extends Component {
     }
   }
 
-  // loading = () => {
-  //   return (
-  //     <div className='loading-container'>
-  //       <p>Loading...</p>
-  //       <FontAwesomeIcon icon={faSpinner}/>
-  //     </div>
-  //   )
-  // }
+  loading = () => {
+    return (
+      <div className='loading-container'>
+        <p>Loading...</p>
+        <FontAwesomeIcon icon={faSpinner}/>
+      </div>
+    )
+  }
 
   apiCall = (value='Miscellaneous') => {
     // axios({
@@ -67,13 +67,14 @@ class App extends Component {
     this.apiCall(value);
   }
 
-  render() {
-    const {pageLoadCount, articles, results} = this.state;
-    
-    if (pageLoadCount === 1) {
+  componentDidMount() {
+    if (this.state.pageLoadCount === 1) {
       this.onPageLoad();
     } 
-    
+  }
+
+  render() {
+    const {articles, results} = this.state;
     return (
       <> 
         <Header handleSearch={this.handleSearch}/>

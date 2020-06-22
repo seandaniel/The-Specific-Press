@@ -30,7 +30,6 @@ class Header extends Component {
 
   render() {
     const {placeholder, query} = this.state;
-    // handleSubmit, handleChange 
     return (
       <header>
         <div className="wrapper">
