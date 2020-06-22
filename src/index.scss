@@ -115,27 +115,29 @@ main {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  form {
-    display: flex;
+  .image-container {
+    position: relative;
+    border-radius: 20px;
+    width: 525px;
     height: 300px;
-    margin-bottom: 60px;
-    .image-container {
-      position: relative;
-      border-radius: 20px;
-      width: 525px;
+    margin-bottom: 40px;
+    top: 0;
+    transition: top .35s;
+    img {
+      display: block;
+      position: absolute;
+      object-fit: cover;
+      width: 100%;
       height: 100%;
+      border-radius: 8px;
+      box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
     }
   }
 }
 
-.image-container img {
-  display: block;
-  position: absolute;
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  box-shadow: 3px 3px 3px rgba(0,0,0,0.3);
+.image-container:hover,
+.image-container:focus {
+  top: -10px;
 }
 
 .image-container h2 {
@@ -146,33 +148,35 @@ main {
   color: $tertiary-color;
   background-color: rgba(38, 38, 38, 0.9);
   padding: 10px;
-  max-width: 320px;
+  max-width: 320px; 
+  transition: color .35s;
 }
 
-form button {
+.image-container:hover h2,
+.image-container:focus h2 {
+  color: $secondary-color;
+}
+
+
+p {
   display: inline-block;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 5px;
+  right: 5px;
   font-size: 25px;
+  font-family: $secondary-font;
   color: $secondary-color;
   background-color: rgba(38, 38, 38, 0.9);
   border: 3px solid rgba(38, 38, 38, 0.9);
   border-radius: 8px;
   padding: 10px;
-  transition: color .35s, background-color .35s;
-  &:hover,
-  &:focus {
-    color: $primary-color;
-    background-color: rgba(204, 201, 220, 0.9)
-  }
 }
 
 .error-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 auto;
+  margin: 40px auto;
   font-size: 40px;
   img {
     background-color: lighten($secondary-color, 10%);

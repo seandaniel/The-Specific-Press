@@ -72,10 +72,10 @@ class App extends Component {
                 return (
                   <Articles
                     key={index}
+                    url={article.url}
                     imgSrc={article.urlToImage}
                     title={article.title}
                     date={article.publishedAt}
-                    url={article.url}
                   />
                   )
                 })
