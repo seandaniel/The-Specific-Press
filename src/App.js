@@ -10,16 +10,16 @@ class App extends Component {
     super();
     this.state = {
       articles: [],
-      // null?
       results: 1,
       query: '',
       isLoading: true,
+      pageLoadCount: 1,
     }
   }
 
-  apiCall = (value = 'Miscellaneous') => {
+  apiCall = (value='Miscellaneous') => {
     axios({
-      url: `https://newsapi.org/v2/everything?q=${value}&language=en&pageSize=100&apiKey=eb43cb932e264320adfd1b7942970622`,
+      url: `https://newsapi.org/v2/everything?q=${value}&language=en&pageSize=100&apiKey=2c5e5f28c17545c4bb0720c93761433c`,
       method: 'GET',
       responseType: 'JSON',
     }).then(response => {
@@ -38,28 +38,33 @@ class App extends Component {
         placeholder: value,
         isLoading: false,
       })
-
-      
     })
   }
-  
+
   onPageLoad = () => {
     this.apiCall();
+    this.setState({
+      pageLoadCount: 2
+    })
   }
 
   handleSearch = value => {
     this.apiCall(value);
     this.setState({
-      placeholder: value,
+      query: value,
     })
   }
 
   render() {
-    const {articles, results} = this.state;
+    const {pageLoadCount, articles, results} = this.state;
+    
+    if (pageLoadCount === 1) {
+      this.onPageLoad();
+    } 
+    
     return (
-      <>
+      <> 
         <Header handleSearch={this.handleSearch}/>
-        {this.onPageLoad()}
         <div className="wrapper">
           <main>
             {
