@@ -16,6 +16,7 @@ class App extends Component {
     this.state = {
       articles: [],
       results: 1,
+      status: '',
       query: '',
       isLoading: true,
       pageLoadCount: 1,
@@ -43,6 +44,9 @@ class App extends Component {
         xmlToJSON: false,
       },
     }).then((response) => {
+
+      let status = response.status;
+      console.log(status);
       let results = response.data.totalResults;
       let articles = response.data.articles;
 
@@ -54,6 +58,7 @@ class App extends Component {
       this.setState({
         articles: filterArticleTitles,
         results,
+        status,
         query: '',
         isLoading: false
       })
