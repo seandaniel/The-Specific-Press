@@ -1,6 +1,5 @@
 import React from 'react';
-import '../index.scss';
-import { faCoffee } from "@fortawesome/free-solid-svg-icons";
+import { faCode } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Footer = () => {
@@ -9,7 +8,7 @@ const Footer = () => {
       <div className="wrapper">
         <p>News articles courtesy of the <a className="api-link" href="https://newsapi.org/">News API</a></p>
         <a href="https://github.com/seandaniel/the-specific-press">
-          <FontAwesomeIcon icon={faCoffee}/>
+          <FontAwesomeIcon icon={faCode} aria-hidden="true" title="View source code via GitHub"/>
         </a>
       </div>
     </footer>

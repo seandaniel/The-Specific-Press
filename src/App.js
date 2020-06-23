@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import Header from './Components/Header'
-import LoadingAnimation from './Components/LoadingAnimation';
 import axios from 'axios';
 import Qs from 'qs';
+import './index.scss';
+
+//Components
+import Header from './Components/Header'
+import LoadingAnimation from './Components/LoadingAnimation';
 import Articles from './Components/Articles';
 import NoResults from './Components/NoResults'
 import Footer from './Components/Footer'
-import './index.scss';
 
 class App extends Component {
   constructor() {

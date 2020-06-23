@@ -1,7 +1,6 @@
 import React from 'react';
 import { faThumbsDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import '../index.scss';
 
 const NoResults = () => {
   return (

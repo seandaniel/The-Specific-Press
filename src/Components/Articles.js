@@ -11,10 +11,10 @@ const Articles = ({url, imgSrc, title, date}) => {
     )
   } else {
       return (
-        <a className="image-container" href={url} aria-label={`${title}, type enter to read more.`} title="Read More" target="_blank" rel="noopener noreferrer">
+        <a className="image-container" href={url} aria-label={`${title}, type enter to read more.`} title="Read more" target="_blank" rel="noopener noreferrer">
           <img src={imgSrc} alt={title}/>
           <h2>{title}</h2>
-          <p><FontAwesomeIcon icon={faClock}/>{date.slice(0, 10)}</p>
+          <p><FontAwesomeIcon icon={faClock} aria-hidden="true"/>{date.slice(0, 10)}</p>
         </a>
     )
   }  
