@@ -101,6 +101,7 @@ class App extends Component {
           <main>
             {
               isLoading ? <LoadingAnimation /> 
+              // && this.state.status === 200
               : results > 0 ? articles.map((article, index) => {
                 return (
                   <Articles
