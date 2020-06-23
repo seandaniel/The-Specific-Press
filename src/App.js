@@ -30,7 +30,7 @@ class App extends Component {
     axios({
       url: `https://newsapi.org/v2/everything?q=${value}&language=en&pageSize=100&apiKey=eb43cb932e264320adfd1b7942970622`,
       method: 'GET',
-      responseType: 'JSON',
+      responseType: 'JSONP',
     }).then(response => {
 
       let results = response.data.totalResults;
