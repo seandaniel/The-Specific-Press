@@ -4,7 +4,7 @@ import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Footer = () => {
-    return (
+  return (
     <footer>
       <div className="wrapper">
         <p>News articles courtesy of the <a className="api-link" href="https://newsapi.org/">News API</a></p>
@@ -13,7 +13,7 @@ const Footer = () => {
         </a>
       </div>
     </footer>
-    )
+  )
 }
 
 export default Footer

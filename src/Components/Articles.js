@@ -17,8 +17,7 @@ const Articles = ({url, imgSrc, title, date}) => {
           <p><FontAwesomeIcon icon={faClock}/>{date.slice(0, 10)}</p>
         </a>
     )
-  }
-  
+  }  
 }
 
 export default Articles

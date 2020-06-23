@@ -4,8 +4,6 @@ import axios from 'axios';
 import Articles from './Components/Articles';
 import Error from './Components/Error'
 import Footer from './Components/Footer'
-import { faSpinner } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './index.scss';
 
 class App extends Component {
@@ -20,15 +18,6 @@ class App extends Component {
     }
   }
 
-  loading = () => {
-    return (
-      <div className='loading-container'>
-        <p>Loading...</p>
-        <FontAwesomeIcon icon={faSpinner}/>
-      </div>
-    )
-  }
-
   apiCall = (value='Miscellaneous') => {
     axios({
       url: `https://newsapi.org/v2/everything?q=${value}&language=en&pageSize=100&apiKey=eb43cb932e264320adfd1b7942970622`,
@@ -39,6 +28,7 @@ class App extends Component {
       let results = response.data.totalResults;
       let articles = response.data.articles;
 
+      // filters out exact article titles that match eachother
       const filterArticleTitles = articles.filter((article, index, array) => {
         return array.findIndex(secondIndex => (secondIndex.title === article.title)) === index
       });

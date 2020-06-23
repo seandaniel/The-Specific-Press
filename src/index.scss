@@ -93,8 +93,6 @@ header {
     background-image: url(/assets/search-icon.png);
     background-repeat: no-repeat;
     background-position: 95% center;
-      -moz-appearance: none;
-	-webkit-appearance: none;
     &:hover,
     &:focus {
       background-color: lighten($secondary-color, 10%);
@@ -191,14 +189,14 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 40px auto;
-  font-size: 40px;
+  margin: 50px auto 130px;
+  font-size: 30px;
   svg {
-    font-size: 180px;
+    font-size: 140px;
     padding: 30px;
     background-color: lighten($secondary-color, 10%);
     border-radius: 10px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
   }
 }
 
