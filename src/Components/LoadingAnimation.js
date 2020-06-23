@@ -7,7 +7,6 @@ const LoadingAnimation = () => {
   return (
     <div className='loading-container'>
       <FontAwesomeIcon icon={faSpinner} />
-      <p>Loading...</p>
     </div>
   )
 }

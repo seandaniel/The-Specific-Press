@@ -4,7 +4,7 @@ import LoadingAnimation from './Components/LoadingAnimation';
 import axios from 'axios';
 import Qs from 'qs';
 import Articles from './Components/Articles';
-import Error from './Components/Error'
+import NoResults from './Components/NoResults'
 import Footer from './Components/Footer'
 import './index.scss';
 
@@ -19,17 +19,6 @@ class App extends Component {
       pageLoadCount: 1,
     }
   }
-
-  // params: {
-  //   apiKey: 'eb43cb932e264320adfd1b7942970622',
-  //   language: 'en',
-  //   pageSize: '100'
-  // }
-
-  // psuedo
-  // if api is loading, show LoadingAnimation.js
-  // when api finishes loading, show articles
-  // break the .then up? But then how do I retain response?
 
   apiCall = (value='Miscellaneous') => {
     axios({
@@ -64,10 +53,9 @@ class App extends Component {
         articles: filterArticleTitles,
         results,
         query: '',
-        isLoading: false,
+        isLoading: false
       })
     })
-    
     console.log('API Called');
   }
 
@@ -75,15 +63,21 @@ class App extends Component {
     console.log('Miscellaneous')
     this.apiCall();
     this.setState({
-      pageLoadCount: 2
+      pageLoadCount: 2,
     })
   }
 
   handleSearch = value => {
+    this.setState({
+      isLoading: true
+    })
     console.log(value);
-    this.apiCall(value);
+    if (this.state.isLoading === false) {
+      this.apiCall(value);
+    }
   }
 
+  // run onPageLoad only once
   componentDidMount() {
     if (this.state.pageLoadCount === 1) {
       this.onPageLoad();
@@ -91,16 +85,16 @@ class App extends Component {
   }
 
   render() {
-    const {articles, results} = this.state;
+    const {isLoading, articles, results} = this.state;
     
     return (
       <> 
         <Header handleSearch={this.handleSearch}/>
         <div className="wrapper">
-          {/* <LoadingAnimation /> */}
           <main>
             {
-              results > 0 ? articles.map((article, index) => {
+              isLoading ? <LoadingAnimation /> 
+              : results > 0 ? articles.map((article, index) => {
                 return (
                   <Articles
                     key={index}
@@ -110,7 +104,7 @@ class App extends Component {
                     date={article.publishedAt}
                   />
                   )
-                }) : <Error />
+                }) : <NoResults />
               }
           </main>
         </div>
