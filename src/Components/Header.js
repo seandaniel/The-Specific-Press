@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import '../index.scss';
+import { faNewspaper } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Header extends Component {
   constructor() {
@@ -33,7 +35,7 @@ class Header extends Component {
     return (
       <header>
         <div className="wrapper">
-          <h1>The Specific Press</h1>
+          <h1><FontAwesomeIcon icon={faNewspaper}/>The Specific Press</h1>
           <h2>Enter a Subject for the Latest News Headlines</h2>
           <form onSubmit={this.handleSubmit}>
             <h2>Showing results for: </h2>

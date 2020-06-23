@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Header from './Components/Header'
-// import axios from 'axios';
+import axios from 'axios';
 import Articles from './Components/Articles';
 import Error from './Components/Error'
-// import Footer from './Components/Footer'
+import Footer from './Components/Footer'
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './index.scss';
@@ -30,27 +30,27 @@ class App extends Component {
   }
 
   apiCall = (value='Miscellaneous') => {
-    // axios({
-    //   url: `https://newsapi.org/v2/everything?q=${value}&language=en&pageSize=100&apiKey=2c5e5f28c17545c4bb0720c93761433c`,
-    //   method: 'GET',
-    //   responseType: 'JSON',
-    // }).then(response => {
+    axios({
+      url: `https://newsapi.org/v2/everything?q=${value}&language=en&pageSize=100&apiKey=eb43cb932e264320adfd1b7942970622`,
+      method: 'GET',
+      responseType: 'JSON',
+    }).then(response => {
 
-    //   let results = response.data.totalResults;
-    //   let articles = response.data.articles;
+      let results = response.data.totalResults;
+      let articles = response.data.articles;
 
-    //   const filterArticleTitles = articles.filter((article, index, array) => {
-    //     return array.findIndex(secondIndex => (secondIndex.title === article.title)) === index
-    //   });
+      const filterArticleTitles = articles.filter((article, index, array) => {
+        return array.findIndex(secondIndex => (secondIndex.title === article.title)) === index
+      });
 
-    //   this.setState({
-    //     articles: filterArticleTitles,
-    //     results,
-    //     query: '',
-    //     placeholder: value,
-    //     isLoading: false,
-    //   })
-    // })
+      this.setState({
+        articles: filterArticleTitles,
+        results,
+        query: '',
+        placeholder: value,
+        isLoading: false,
+      })
+    })
     console.log('API Called');
   }
 
@@ -95,7 +95,7 @@ class App extends Component {
               }
           </main>
         </div>
-        {/* <Footer /> */}
+        <Footer />
       </>
     )
   }

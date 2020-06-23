@@ -73,6 +73,9 @@ header {
     font-size: 80px;
     border-bottom: 4px solid $primary-color;
     text-align: center;
+    svg {
+      margin-right: 40px;
+    }
   }
   input {
     font-weight: 400;
@@ -86,6 +89,12 @@ header {
     border-bottom: 4px solid $primary-color;
     width: 250px;
     transition: background-color .35s;
+    position: relative;
+    background-image: url(/assets/search-icon.png);
+    background-repeat: no-repeat;
+    background-position: 95% center;
+      -moz-appearance: none;
+	-webkit-appearance: none;
     &:hover,
     &:focus {
       background-color: lighten($secondary-color, 10%);
@@ -173,6 +182,9 @@ main {
   border: 3px solid rgba(38, 38, 38, 0.9);
   border-radius: 8px;
   padding: 10px;
+  svg {
+    margin-right: 10px;
+  }
 }
 
 .error-container {
@@ -181,11 +193,12 @@ main {
   align-items: center;
   margin: 40px auto;
   font-size: 40px;
-  img {
+  svg {
+    font-size: 180px;
+    padding: 30px;
     background-color: lighten($secondary-color, 10%);
-    padding: 40px;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
   }
 }
 
@@ -209,6 +222,10 @@ footer {
       color: $tertiary-color;
     }
   }
+}
+
+.api-link {
+  font-size: 20px;
 }
 
 footer .wrapper {

@@ -1,10 +1,12 @@
 import React from 'react';
+import { faThumbsDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import '../index.scss';
 
 const Error = () => {
   return (
     <div className="error-container">
-      <img src="assets/thumbdown.png" alt="A thumb pointed down" />
+      <FontAwesomeIcon icon={faThumbsDown} />
       <h3>That subject must not be newsworthy, try again.</h3>
     </div>
   )

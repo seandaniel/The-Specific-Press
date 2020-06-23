@@ -7,7 +7,7 @@ const Footer = () => {
     return (
     <footer>
       <div className="wrapper">
-        <p>News articles courtesy of the <a href="https://newsapi.org/">News API</a></p>
+        <p>News articles courtesy of the <a className="api-link" href="https://newsapi.org/">News API</a></p>
         <a href="https://github.com/seandaniel/the-specific-press">
           <FontAwesomeIcon icon={faCoffee}/>
         </a>

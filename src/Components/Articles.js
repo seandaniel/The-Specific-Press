@@ -1,4 +1,6 @@
 import React from 'react'; 
+import { faClock } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Articles = ({url, imgSrc, title, date}) => {
     
@@ -12,7 +14,7 @@ const Articles = ({url, imgSrc, title, date}) => {
         <a className="image-container" href={url} aria-label={`${title}, type enter to read more.`} title="Read More" target="_blank" rel="noopener noreferrer">
           <img src={imgSrc} alt={title}/>
           <h2>{title}</h2>
-          <p>{date.slice(0, 10)}</p>
+          <p><FontAwesomeIcon icon={faClock}/>{date.slice(0, 10)}</p>
         </a>
     )
   }
