@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './Components/Header'
 import LoadingAnimation from './Components/LoadingAnimation';
 import axios from 'axios';
+import Qs from 'qs';
 import Articles from './Components/Articles';
 import Error from './Components/Error'
 import Footer from './Components/Footer'
@@ -19,20 +20,38 @@ class App extends Component {
     }
   }
 
+  // params: {
+  //   apiKey: 'eb43cb932e264320adfd1b7942970622',
+  //   language: 'en',
+  //   pageSize: '100'
+  // }
+
   // psuedo
   // if api is loading, show LoadingAnimation.js
   // when api finishes loading, show articles
-
-
   // break the .then up? But then how do I retain response?
 
   apiCall = (value='Miscellaneous') => {
     axios({
-      url: `https://newsapi.org/v2/everything?q=${value}&language=en&pageSize=100&apiKey=eb43cb932e264320adfd1b7942970622`,
-      method: 'GET',
-      responseType: 'JSONP',
-    }).then(response => {
-
+      url: 'https://proxy.hackeryou.com',
+      responseType: 'json',
+      paramsSerializer: function (params) {
+        return Qs.stringify(params, { arrayFormat: 'brackets' });
+      },
+      params: {
+        reqUrl: 'https://newsapi.org/v2/everything',
+        params: {
+          q: value,
+          language: 'en',
+          pageSize: 100,
+          apiKey: `eb43cb932e264320adfd1b7942970622`,
+        },
+        proxyHeaders: {
+          header_params: 'value',
+        },
+        xmlToJSON: false,
+      },
+    }).then((response) => {
       let results = response.data.totalResults;
       let articles = response.data.articles;
 
@@ -48,6 +67,7 @@ class App extends Component {
         isLoading: false,
       })
     })
+    
     console.log('API Called');
   }
 
