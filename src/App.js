@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Header from './Components/Header'
+import LoadingAnimation from './Components/LoadingAnimation';
 import axios from 'axios';
 import Articles from './Components/Articles';
 import Error from './Components/Error'
@@ -17,6 +18,13 @@ class App extends Component {
       pageLoadCount: 1,
     }
   }
+
+  // psuedo
+  // if api is loading, show LoadingAnimation.js
+  // when api finishes loading, show articles
+
+
+  // break the .then up? But then how do I retain response?
 
   apiCall = (value='Miscellaneous') => {
     axios({
@@ -37,7 +45,6 @@ class App extends Component {
         articles: filterArticleTitles,
         results,
         query: '',
-        placeholder: value,
         isLoading: false,
       })
     })
@@ -65,10 +72,12 @@ class App extends Component {
 
   render() {
     const {articles, results} = this.state;
+    
     return (
       <> 
         <Header handleSearch={this.handleSearch}/>
         <div className="wrapper">
+          {/* <LoadingAnimation /> */}
           <main>
             {
               results > 0 ? articles.map((article, index) => {

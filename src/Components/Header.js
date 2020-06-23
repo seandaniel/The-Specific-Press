@@ -32,6 +32,7 @@ class Header extends Component {
 
   render() {
     const {placeholder, query} = this.state;
+    
     return (
       <header>
         <div className="wrapper">

@@ -3,13 +3,13 @@ import '../index.scss';
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-loading = () => {
+const LoadingAnimation = () => {
   return (
     <div className='loading-container'>
-      <p>Loading...</p>
       <FontAwesomeIcon icon={faSpinner} />
+      <p>Loading...</p>
     </div>
   )
 }
 
-export default Loading
+export default LoadingAnimation

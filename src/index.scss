@@ -185,6 +185,15 @@ main {
   }
 }
 
+// LoadingAnimation.js
+
+.loading-container {
+  text-align: center;
+  font-size: 30px;
+  margin: 60px 0 140px;
+}
+
+// Error.js
 .error-container {
   display: flex;
   flex-direction: column;
