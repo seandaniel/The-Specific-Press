@@ -52,6 +52,7 @@ class Header extends Component {
               placeholder={placeholder}
               value={query}
               onChange={this.handleChange} 
+              required
             />
             <label className="sr-only" htmlFor="search">Miscellaneous</label>
           </form>
