@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
 import { faNewspaper } from "@fortawesome/free-solid-svg-icons";
+import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Header extends Component {
   constructor() {
     super();
+
+    this.top = React.createRef();
+
     this.state = {
       query: '',
       placeholder: 'Miscellaneous',
     }
+  }
+
+  handleScrollTop = () => {
+    window.scrollTo(0, this.top.current.offsetTop);
   }
 
   handleSubmit = (e) => {
@@ -33,7 +41,7 @@ class Header extends Component {
     const {placeholder, query} = this.state;
     
     return (
-      <header>
+      <header ref={this.top}>
         <div className="wrapper">
           <h1><FontAwesomeIcon icon={faNewspaper}/>The Specific Press</h1>
           <h2>Enter a Subject for the Latest News Headlines</h2>
@@ -47,6 +55,9 @@ class Header extends Component {
             />
             <label className="sr-only" htmlFor="search">Miscellaneous</label>
           </form>
+          <button onClick={this.handleScrollTop}>
+            <FontAwesomeIcon icon={faArrowUp} aria-hidden="true" title="Back to the top" />
+          </button>
         </div>
       </header>
     )

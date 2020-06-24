@@ -17,7 +17,11 @@ $tertiary-color: #f4f4f4;
 $primary-font: 'Roboto', serif;
 $secondary-font: 'Bebas Neue', cursive;
 
-// sass
+// styles
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: $primary-font;
   color: $primary-color;
@@ -89,10 +93,6 @@ header {
     border-bottom: 4px solid $primary-color;
     width: 250px;
     transition: background-color .35s;
-    position: relative;
-    background-image: url(/assets/search-icon.png);
-    background-repeat: no-repeat;
-    background-position: 95% center;
     &:hover,
     &:focus {
       background-color: lighten($secondary-color, 10%);
@@ -131,6 +131,25 @@ header form {
     h2 {
       margin-bottom: 0;
     }
+  }
+}
+
+header button {
+  position: fixed;
+  bottom: 1%;
+  right: 5%;
+  z-index: 30;
+  font-size: 25px;
+  color: $secondary-color;
+  background-color: rgba(38, 38, 38, 0.9);
+  border: 3px solid rgba(38, 38, 38, 0.9);
+  border-radius: 8px;
+  padding: 10px;
+  transition: background-color .35s, color .35s;
+  &:hover,
+  &:focus {
+    background-color: $secondary-color;
+    color: $primary-color;
   }
 }
 
@@ -280,6 +299,10 @@ footer {
   }
 }
 
+.api-link {
+  font-size: 20px;
+}
+
 footer a {
   color: $secondary-color;
   text-decoration: underline;
@@ -289,10 +312,6 @@ footer a {
   &:focus {
     color: $tertiary-color;
   }
-}
-
-.api-link {
-  font-size: 20px;
 }
 
 @media (max-width: 550px) {

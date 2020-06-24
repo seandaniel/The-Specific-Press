@@ -41,8 +41,7 @@ class App extends Component {
       }
     }).then((response) => {
 
-      let status = response.status;
-      console.log(status);
+      console.log(response);
       let results = response.data.totalResults;
       let articles = response.data.articles;
 
@@ -54,11 +53,16 @@ class App extends Component {
       this.setState({
         articles: filterArticleTitles,
         results,
-        status,
         query: '',
         isLoading: false
       })
+
+    }).catch((error) => {
+        console.log(error);
+
     })
+    
+
   }
 
   onPageLoad = () => {
@@ -86,12 +90,13 @@ class App extends Component {
     } 
   }
 
+
   render() {
     const {isLoading, articles, results} = this.state;
     
     return (
       <> 
-        <Header handleSearch={this.handleSearch}/>
+        <Header handleSearch={this.handleSearch} ref={this.top}/>
         <div className="wrapper">
           <main>
             {
