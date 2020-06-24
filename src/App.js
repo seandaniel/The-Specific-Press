@@ -6,6 +6,7 @@ import './index.scss';
 //Components
 import Header from './Components/Header'
 import LoadingAnimation from './Components/LoadingAnimation';
+import Error from './Components/Error';
 import Articles from './Components/Articles';
 import NoResults from './Components/NoResults'
 import Footer from './Components/Footer'
@@ -16,7 +17,7 @@ class App extends Component {
     this.state = {
       articles: [],
       results: 1,
-      status: '',
+      apiLimit: false,
       query: '',
       isLoading: true,
       pageLoadCount: 1,
@@ -55,13 +56,13 @@ class App extends Component {
         query: '',
         isLoading: false
       })
-
-    }).catch((error) => {
-        console.log(error);
-
+    }).catch(() => {
+        this.setState({
+          isLoading: false,
+          apiLimit: true
+        })
+        console.log(this.state.apiLimit);
     })
-    
-
   }
 
   onPageLoad = () => {
@@ -74,7 +75,8 @@ class App extends Component {
 
   handleSearch = value => {
     this.setState({
-      isLoading: true
+      isLoading: true,
+      apiLimit: false
     })
 
     if (this.state.isLoading === false) {
@@ -89,9 +91,8 @@ class App extends Component {
     } 
   }
 
-
   render() {
-    const {isLoading, articles, results} = this.state;
+    const {isLoading, articles, results, apiLimit} = this.state;
     
     return (
       <> 
@@ -100,7 +101,7 @@ class App extends Component {
           <main>
             {
               isLoading ? <LoadingAnimation /> 
-              // && this.state.status === 200
+              : apiLimit === true ? <Error/>
               : results > 0 ? articles.map((article, index) => {
                 return (
                   <Articles
@@ -111,11 +112,11 @@ class App extends Component {
                     date={article.publishedAt}
                   />
                   )
-                }) : <NoResults />
+                }) : <NoResults/>
               }
           </main>
         </div>
-        <Footer />
+        <Footer/>
       </>
     )
   }

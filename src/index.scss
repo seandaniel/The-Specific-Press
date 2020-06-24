@@ -145,9 +145,10 @@ header button {
   border: 3px solid $secondary-color;
   border-radius: 8px;
   padding: 10px;
-  transition: background-color .35s, color .35s;
+  transition: border .35s, background-color .35s, color .35s;
   &:hover,
   &:focus {
+    border: 3px solid $primary-color;
     background-color: $secondary-color;
     color: $primary-color;
   }
@@ -270,12 +271,14 @@ main {
   }
 }
 
-// NoResults.js
+// NoResults.js & Error.js
 .noResults-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 50px auto 130px;
+  justify-content: center;
+  margin: 0 auto;
+  height: 412px;
   font-size: 30px;
   text-align: center;
   svg {
@@ -284,6 +287,13 @@ main {
     background-color: lighten($secondary-color, 10%);
     border-radius: 10px;
     margin-bottom: 30px;
+  }
+  h3 a {
+    text-decoration: underline;
+    transition: color .35s;
+    &:hover {
+      color: $tertiary-color;
+    }
   }
 }
 
