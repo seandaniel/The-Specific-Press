@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/the-specific-press/static/css/main.72722a87.chunk.css",
+    "main.css": "/the-specific-press/static/css/main.21c3b9c4.chunk.css",
     "main.js": "/the-specific-press/static/js/main.152e350e.chunk.js",
     "main.js.map": "/the-specific-press/static/js/main.152e350e.chunk.js.map",
     "runtime-main.js": "/the-specific-press/static/js/runtime-main.83d25b41.js",
@@ -8,15 +8,15 @@
     "static/js/2.1c68d905.chunk.js": "/the-specific-press/static/js/2.1c68d905.chunk.js",
     "static/js/2.1c68d905.chunk.js.map": "/the-specific-press/static/js/2.1c68d905.chunk.js.map",
     "index.html": "/the-specific-press/index.html",
-    "precache-manifest.14b647b2c4aa844645b6cb0cf7358e44.js": "/the-specific-press/precache-manifest.14b647b2c4aa844645b6cb0cf7358e44.js",
+    "precache-manifest.c25809e3ecc9aa839c1f7deeda5db98e.js": "/the-specific-press/precache-manifest.c25809e3ecc9aa839c1f7deeda5db98e.js",
     "service-worker.js": "/the-specific-press/service-worker.js",
-    "static/css/main.72722a87.chunk.css.map": "/the-specific-press/static/css/main.72722a87.chunk.css.map",
+    "static/css/main.21c3b9c4.chunk.css.map": "/the-specific-press/static/css/main.21c3b9c4.chunk.css.map",
     "static/js/2.1c68d905.chunk.js.LICENSE.txt": "/the-specific-press/static/js/2.1c68d905.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.83d25b41.js",
     "static/js/2.1c68d905.chunk.js",
-    "static/css/main.72722a87.chunk.css",
+    "static/css/main.21c3b9c4.chunk.css",
     "static/js/main.152e350e.chunk.js"
   ]
 }
