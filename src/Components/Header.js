@@ -45,7 +45,7 @@ class Header extends Component {
               value={query}
               onChange={this.handleChange} 
             />
-            <label className="sr-only" htmlFor="search">Search News</label>
+            <label className="sr-only" htmlFor="search">Miscellaneous</label>
           </form>
         </div>
       </header>

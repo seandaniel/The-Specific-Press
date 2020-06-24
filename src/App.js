@@ -37,12 +37,8 @@ class App extends Component {
           language: 'en',
           pageSize: 100,
           apiKey: `eb43cb932e264320adfd1b7942970622`,
-        },
-        proxyHeaders: {
-          header_params: 'value',
-        },
-        xmlToJSON: false,
-      },
+        }
+      }
     }).then((response) => {
 
       let status = response.status;
@@ -50,7 +46,7 @@ class App extends Component {
       let results = response.data.totalResults;
       let articles = response.data.articles;
 
-      // filters out exact article titles that match eachother
+      // filters out EXACT article titles
       const filterArticleTitles = articles.filter((article, index, array) => {
         return array.findIndex(secondIndex => (secondIndex.title === article.title)) === index
       });
@@ -63,12 +59,11 @@ class App extends Component {
         isLoading: false
       })
     })
-    console.log('API Called');
   }
 
   onPageLoad = () => {
-    console.log('Miscellaneous')
     this.apiCall();
+
     this.setState({
       pageLoadCount: 2,
     })
@@ -78,7 +73,7 @@ class App extends Component {
     this.setState({
       isLoading: true
     })
-    console.log(value);
+
     if (this.state.isLoading === false) {
       this.apiCall(value);
     }
