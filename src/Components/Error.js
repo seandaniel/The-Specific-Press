@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const Error = () => {
   return (
     <div className="noResults-container">
-      <FontAwesomeIcon icon={faSurprise} />
+      <FontAwesomeIcon icon={faSurprise}/>
       <h3>Whoa! We can't retrieve news articles right now. Read them from the <a href="https://news.google.com/topstories?hl=en-CA&gl=CA&ceid=CA:en">source</a> instead.</h3>
     </div>
   )

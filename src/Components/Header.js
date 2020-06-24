@@ -7,7 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 class Header extends Component {
   constructor() {
     super();
-
     this.top = React.createRef();
 
     this.state = {
@@ -39,7 +38,7 @@ class Header extends Component {
   }
 
   render() {
-    const {placeholder, query} = this.state;
+    const { placeholder, query } = this.state;
     
     return (
       <header ref={this.top}>
@@ -61,7 +60,7 @@ class Header extends Component {
             </span>
           </form>
           <button onClick={this.handleScrollTop}>
-            <FontAwesomeIcon icon={faArrowUp} aria-hidden="true" title="Back to the top" />
+            <FontAwesomeIcon icon={faArrowUp} aria-hidden="true" title="Back to the top"/>
           </button>
         </div>
       </header>

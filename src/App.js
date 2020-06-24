@@ -61,7 +61,6 @@ class App extends Component {
           isLoading: false,
           apiLimit: true
         })
-        console.log(this.state.apiLimit);
     })
   }
 
@@ -92,7 +91,7 @@ class App extends Component {
   }
 
   render() {
-    const {isLoading, articles, results, apiLimit} = this.state;
+    const { isLoading, apiLimit, results, articles } = this.state;
     
     return (
       <> 

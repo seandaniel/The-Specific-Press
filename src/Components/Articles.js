@@ -2,7 +2,7 @@ import React from 'react';
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Articles = ({url, imgSrc, title, date}) => {
+const Articles = ({ imgSrc, url, title, date} ) => {
     
   // if there is no image, don't return the article
   if (imgSrc === null) {

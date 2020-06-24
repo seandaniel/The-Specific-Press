@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const LoadingAnimation = () => {
   return (
     <div className='loading-container'>
-      <FontAwesomeIcon icon={faSpinner} />
+      <FontAwesomeIcon icon={faSpinner}/>
     </div>
   )
 }

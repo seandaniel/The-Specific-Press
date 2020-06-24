@@ -7,11 +7,9 @@ const Footer = () => {
     <footer>
       <div className="wrapper">
         <p>News articles courtesy of the <a className="api-link" href="https://newsapi.org/">News API</a></p>
-        <div className="button-container">
         <a href="https://github.com/seandaniel/the-specific-press">
           <FontAwesomeIcon icon={faCode} aria-hidden="true" title="View source code via GitHub"/>
         </a>
-        </div>
       </div>
     </footer>
   )
