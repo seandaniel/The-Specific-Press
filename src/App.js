@@ -41,7 +41,6 @@ class App extends Component {
       }
     }).then((response) => {
 
-      console.log(response);
       let results = response.data.totalResults;
       let articles = response.data.articles;
 

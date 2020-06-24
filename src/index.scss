@@ -136,13 +136,13 @@ header form {
 
 header button {
   position: fixed;
-  bottom: 1%;
+  bottom: 5%;
   right: 5%;
   z-index: 30;
   font-size: 25px;
   color: $secondary-color;
   background-color: rgba(38, 38, 38, 0.9);
-  border: 3px solid rgba(38, 38, 38, 0.9);
+  border: 3px solid $secondary-color;
   border-radius: 8px;
   padding: 10px;
   transition: background-color .35s, color .35s;
@@ -150,6 +150,12 @@ header button {
   &:focus {
     background-color: $secondary-color;
     color: $primary-color;
+  }
+}
+
+@media (max-width:650px) {
+  header button {
+    display: none;
   }
 }
 
