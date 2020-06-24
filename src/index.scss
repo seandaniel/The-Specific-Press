@@ -100,6 +100,18 @@ header {
   }
 }
 
+.search-container {
+  display: flex;
+  align-items: center;
+  svg {
+    margin-left: 10px;
+  }
+}
+
+input:required {
+    box-shadow: none;
+}
+
 header h2 {
   font-size: 40px;
   margin-top: 50px;

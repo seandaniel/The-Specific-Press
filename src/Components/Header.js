@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { faNewspaper } from "@fortawesome/free-solid-svg-icons";
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Header extends Component {
@@ -47,14 +48,17 @@ class Header extends Component {
           <h2>Enter a Subject for the Latest News Headlines</h2>
           <form onSubmit={this.handleSubmit}>
             <h2>Showing results for: </h2>
-            <input 
-              type="text" 
-              placeholder={placeholder}
-              value={query}
-              onChange={this.handleChange} 
-              required
-            />
-            <label className="sr-only" htmlFor="search">Miscellaneous</label>
+            <span className="search-container">
+              <input
+                type="text"
+                placeholder={placeholder}
+                value={query}
+                onChange={this.handleChange}
+                required
+              />
+              <FontAwesomeIcon icon={faSearch} aria-hidden="true"/>
+              <label className="sr-only" htmlFor="search">Miscellaneous</label>
+            </span>
           </form>
           <button onClick={this.handleScrollTop}>
             <FontAwesomeIcon icon={faArrowUp} aria-hidden="true" title="Back to the top" />
