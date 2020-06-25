@@ -89,12 +89,12 @@ header {
 
 header form {
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   font-size: 30px;
   margin-top: 25px;
   h2 {
     font-size: 40px;
-    margin-top: 50px;
+    margin-top: 0;
   }
 }
 
@@ -136,7 +136,6 @@ input:required {
 
 @media (max-width: 650px) {
   header h2 {
-    margin-bottom: 50px;
     text-align: center;
   }
 
@@ -174,6 +173,24 @@ header button {
 @media (max-width:650px) {
   header button {
     display: none;
+  }
+}
+
+// LoadingAnimation.js
+.loading-container {
+  font-size: 80px;
+  margin: 120px auto 200px;
+  svg {
+    animation: spin 2s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg)
+  }
+  100% {
+    transform: rotate(360deg)
   }
 }
 
@@ -264,24 +281,6 @@ main {
   .image-container p {
     top: 0;
     right: 0;
-  }
-}
-
-// LoadingAnimation.js
-.loading-container {
-  font-size: 80px;
-  margin: 120px auto 200px;
-  svg {
-    animation: spin 2s linear infinite;
-  }
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg)
-  }
-  100% {
-    transform: rotate(360deg)
   }
 }
 

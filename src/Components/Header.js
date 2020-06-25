@@ -59,7 +59,7 @@ class Header extends Component {
               <label className="sr-only" htmlFor="search">Miscellaneous</label>
             </span>
           </form>
-          <button onClick={this.handleScrollTop}>
+          <button onClick={this.handleScrollTop} aria-label="Back to the top">
             <FontAwesomeIcon icon={faArrowUp} aria-hidden="true" title="Back to the top"/>
           </button>
         </div>
