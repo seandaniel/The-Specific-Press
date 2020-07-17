@@ -125,8 +125,14 @@ input {
 .search-container {
   display: flex;
   align-items: center;
-  svg {
+  .search-button {
+    color: $primary-color;
     margin-left: 10px;
+    transition: opacity .35s;
+    &:hover,
+    &:focus {
+      opacity: 0.3;
+    }
   }
 }
 
@@ -150,7 +156,7 @@ input:required {
   }
 }
 
-header button {
+.up-arrow {
   position: fixed;
   bottom: 5%;
   right: 5%;

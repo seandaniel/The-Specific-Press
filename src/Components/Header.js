@@ -47,7 +47,7 @@ class Header extends Component {
           <h2>Enter a Subject for the Latest News Headlines</h2>
           <form onSubmit={this.handleSubmit}>
             <h2>Showing results for: </h2>
-            <span className="search-container">
+            <div className="search-container">
               <input
                 type="text"
                 placeholder={placeholder}
@@ -55,11 +55,11 @@ class Header extends Component {
                 onChange={this.handleChange}
                 required
               />
-              <FontAwesomeIcon icon={faSearch} aria-hidden="true"/>
               <label className="sr-only" htmlFor="search">Miscellaneous</label>
-            </span>
+            <button class="search-button" onSubmit={this.handleSubmit}><FontAwesomeIcon icon={faSearch} aria-hidden="true"/></button>
+            </div>
           </form>
-          <button onClick={this.handleScrollTop} aria-label="Back to the top">
+          <button class="up-arrow" onClick={this.handleScrollTop} aria-label="Back to the top">
             <FontAwesomeIcon icon={faArrowUp} aria-hidden="true" title="Back to the top"/>
           </button>
         </div>
