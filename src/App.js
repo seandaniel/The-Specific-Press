@@ -11,6 +11,7 @@ import Articles from './Components/Articles';
 import NoResults from './Components/NoResults'
 import Footer from './Components/Footer'
 
+
 class App extends Component {
   constructor() {
     super();
@@ -95,6 +96,11 @@ class App extends Component {
     
     return (
       <> 
+        <MetaTags>
+          <meta name="description" content="A news generator app that receives a user’s input and retrieves curated articles relating to the subject searched." />
+          <meta property="og:title" content="The Specific Press" />
+          <meta property="og:image" content="%PUBLIC_URL%/favicon.ico?" />
+        </MetaTags>
         <Header handleSearch={this.handleSearch} ref={this.top}/>
         <div className="wrapper">
           <main>
