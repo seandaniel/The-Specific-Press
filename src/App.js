@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Qs from 'qs';
 import './index.scss';
-import MetaTags from 'react-meta-tags';
 
 //Components
 import Header from './Components/Header'
@@ -97,11 +96,6 @@ class App extends Component {
     
     return (
       <> 
-        <MetaTags>
-          <meta name="description" content="A news generator app that receives a user’s input and retrieves curated articles relating to the subject searched." />
-          <meta property="og:title" content="The Specific Press" />
-          <meta property="og:image" content="public/favicon.ico?" />
-        </MetaTags>
         <Header handleSearch={this.handleSearch} ref={this.top}/>
         <div className="wrapper">
           <main>
