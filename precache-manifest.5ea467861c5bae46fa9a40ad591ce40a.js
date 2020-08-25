@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "12eab993c9b01d453d9f33e3f82c8f0e",
+    "revision": "b1dae100d89f034f9e40f3772fe35274",
     "url": "/the-specific-press/index.html"
   },
   {
-    "revision": "edfac8b7ee9ed84722e5",
+    "revision": "24c29b98126c7bdf510a",
     "url": "/the-specific-press/static/css/main.a2d6953f.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/the-specific-press/static/js/2.1c68d905.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "edfac8b7ee9ed84722e5",
-    "url": "/the-specific-press/static/js/main.279e1013.chunk.js"
+    "revision": "24c29b98126c7bdf510a",
+    "url": "/the-specific-press/static/js/main.5ec8dbff.chunk.js"
   },
   {
     "revision": "a52157b70c5a9d766f4a",
