@@ -25,11 +25,11 @@ class App extends Component {
     }
   }
 
-  apiCall = (value='Miscellaneous') => {
+  apiCall = (value = 'Miscellaneous') => {
     axios({
       url: 'https://proxy.hackeryou.com',
       responseType: 'json',
-      paramsSerializer: function (params) {
+      paramsSerializer: function(params) {
         return Qs.stringify(params, { arrayFormat: 'brackets' });
       },
       params: {
@@ -58,10 +58,10 @@ class App extends Component {
         isLoading: false
       })
     }).catch(() => {
-        this.setState({
-          isLoading: false,
-          apiLimit: true
-        })
+      this.setState({
+        isLoading: false,
+        apiLimit: true
+      })
     })
   }
 
@@ -88,35 +88,35 @@ class App extends Component {
   componentDidMount() {
     if (this.state.pageLoadCount === 1) {
       this.onPageLoad();
-    } 
+    }
   }
 
   render() {
     const { isLoading, apiLimit, results, articles } = this.state;
-    
+
     return (
-      <> 
-        <Header handleSearch={this.handleSearch} ref={this.top}/>
+      <>
+        <Header handleSearch={this.handleSearch} ref={this.top} />
         <div className="wrapper">
           <main>
             {
-              isLoading ? <LoadingAnimation /> 
-              : apiLimit === true ? <Error/>
-              : results > 0 ? articles.map((article, index) => {
-                return (
-                  <Articles
-                    key={index}
-                    url={article.url}
-                    imgSrc={article.urlToImage}
-                    title={article.title}
-                    date={article.publishedAt}
-                  />
-                  )
-                }) : <NoResults/>
-              }
+              isLoading ? <LoadingAnimation />
+                : apiLimit === true ? <Error />
+                  : results > 0 ? articles.map((article, index) => {
+                    return (
+                      <Articles
+                        key={index}
+                        url={article.url}
+                        imgSrc={article.urlToImage}
+                        title={article.title}
+                        date={article.publishedAt}
+                      />
+                    )
+                  }) : <NoResults />
+            }
           </main>
         </div>
-        <Footer/>
+        <Footer />
       </>
     )
   }
