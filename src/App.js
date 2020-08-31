@@ -97,6 +97,7 @@ class App extends Component {
     return (
       <>
         <Header handleSearch={this.handleSearch} ref={this.top} />
+        <p>Test</p>
         <div className="wrapper">
           <main>
             {
